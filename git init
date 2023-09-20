@@ -1,0 +1,22 @@
+git remote add origin https://github.com/nazwir-fadlan/batch13_pertemuan2.git
+
+git add . 
+
+git commit -m "pesan commit"
+
+// dilakukan ketika pertama kali push ke repository
+git push -u origin master
+atau
+git push -u origin main
+
+========================================
+
+untuk push kedua dan selanjutnya:
+
+git pull
+
+git add . 
+
+git commit -m "pesan commit lagi"
+
+git push

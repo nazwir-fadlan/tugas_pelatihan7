@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profil Saya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asset/css/styleVALUEJS.css">
+</head>
+<body>
+    <nav>
+        <div class="menu-mobile">
+            <a href="#" onclick="showMenu()">menu</a>
+        </div>
+        <ul id="menu">
+            <li><a href="/">HOME</a></li>
+            <li><a href="#">PRODUCT</a></li>
+            <li><a href="#">GALLERY</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">INVENTORY</a></li>
+        </ul>
+    </nav>
+
+    <section id="box-profile">
+        <div class="img-profile">
+            <div class="photo" style="background-image: url(file:///Users/swijaya/Downloads/WFDB2/portfoliotm6/asset/image/download.jpeg)">
+            </div>
+        </div>
+        <div class="description">
+            <h1 id="pName">Nama Anda</h1>
+            <p id="pRole">Front End Designer</p>
+            <a href="#input-form" class="button bg-blue" onclick="editForm()">Edit</a>
+            <a href="#" class="button border-green">Resume</a>
+        </div>
+        <div class="information">
+            <div class="data">
+                <p class="field">Availability</p>
+                <p id="pAvailability" class="text-gray">Full Time</p>
+            </div>
+            <div class="data">
+                <p class="field">Usia</p>
+                <p id="pAge" class="text-gray">19</p>
+            </div>
+            <div class="data">
+                <p class="field">Lokasi</p>
+                <p id="pLocation" class="text-gray">Jakarta</p>
+            </div>
+            <div class="data">
+                <p class="field">Pengalaman</p>
+                <p id="pExperience" class="text-gray">2</p>
+            </div>
+            <div class="data">
+                <p class="field">Email</p>
+                <p id="pEmail" class="text-gray">email@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="input-form">
+        <form method="#" action="#">
+            <div class="form">
+                <label>Nama</label>
+                <input id="inpName" type="text" name="nama" placeholder="masukkan nama anda">
+            </div>
+            <div class="form">
+                <label>Role</label>
+                <input id="inpRole" type="text" name="role">
+            </div>
+            <div class="form">
+                <label>Availability</label>
+                <input id="inpAvailability" type="text" name="Availability">
+            </div>
+            <div class="form">
+                <label>Usia</label>
+                <input id="inpAge" type="number" name="usia">
+            </div>
+            <div class="form">
+                <label>Lokasi</label>
+                <input id="inpLocation" type="text" name="lokasi">
+            </div>
+            <div class="form">
+                <label>Years Experience</label>
+                <input id="inpExperience" type="number" name="experience">
+            </div>
+            <div class="form">
+                <label>Email</label>
+                <input id="inpEmail" type="email" name="email">
+            </div>
+            <div class="form">
+                <input onclick="simpanForm()" type="submit" name="submit" value="SUBMIT" class="bg-green">
+            </div>
+        </form>
+    </section>
+
+    <script>
+        var formMenu = document.getElementById("input-form");
+        formMenu.style.display = "none";
+
+        function editForm() {
+            if (formMenu.style.display === "none") {
+                formMenu.style.display = "block";
+
+                // Mengambil nilai dari label dan menampilkannya di input field
+                document.getElementById("inpName").value = document.getElementById("pName").textContent;
+                document.getElementById("inpRole").value = document.getElementById("pRole").textContent;
+                document.getElementById("inpAvailability").value = document.getElementById("pAvailability").textContent;
+                document.getElementById("inpAge").value = document.getElementById("pAge").textContent;
+                document.getElementById("inpLocation").value = document.getElementById("pLocation").textContent;
+                document.getElementById("inpExperience").value = document.getElementById("pExperience").textContent;
+                document.getElementById("inpEmail").value = document.getElementById("pEmail").textContent;
+            } else {
+                formMenu.style.display = "none";
+            }
+        }
+
+        function simpanForm() {
+            // Mendapatkan nilai dari input fields
+            var name = document.getElementById("inpName").value;
+            var role = document.getElementById("inpRole").value;
+            var availability = document.getElementById("inpAvailability").value;
+            var age = document.getElementById("inpAge").value;
+            var location = document.getElementById("inpLocation").value;
+            var experience = document.getElementById("inpExperience").value;
+            var email = document.getElementById("inpEmail").value;
+
+            // Mengatur nilai label dengan nilai dari input fields
+            document.getElementById("pName").textContent = name;
+            document.getElementById("pRole").textContent = role;
+            document.getElementById("pAvailability").textContent = availability;
+            document.getElementById("pAge").textContent = age;
+            document.getElementById("pLocation").textContent = location;
+            document.getElementById("pExperience").textContent = experience;
+            document.getElementById("pEmail").textContent = email;
+
+            // Menyembunyikan form setelah disimpan
+            formMenu.style.display = "none";
+
+            // Menghentikan tindakan default saat tombol "Submit" ditekan
+            event.preventDefault();
+        }
+
+        function showMenu() {
+            var menu = document.getElementById("menu");
+            var box = document.getElementById("box-profile");
+
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+                box.style.paddingTop = "0px";
+            } else {
+                menu.style.display = "block";
+                box.style.paddingTop = "125px";
+            }
+        }
+    </script>
+</body>
+</html>
